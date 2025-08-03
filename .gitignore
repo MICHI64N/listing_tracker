@@ -1,0 +1,6 @@
+# MacOS does NOT need to interfere
+.DS_Store
+
+# Testing Stuff
+__pycache__
+database.sqlite
