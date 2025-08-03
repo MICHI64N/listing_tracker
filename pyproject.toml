@@ -16,3 +16,6 @@ classifiers = [
     "Development Status :: 1 - Planning",
     "Programming Language :: Python"
 ]
+
+[project-urls]
+GitHub = "https://github.com/MICHI64N/listing_tracker"

@@ -39,3 +39,5 @@ def insert_webpage(inserted_webpages: classes.Table):
             # support Python 3.9 and 3.10
         values = (url, website, datetime_adapter(init_datetime))
         inserted_webpages.insert(values)
+        log_message = f'Webpage from {website} successfully inserted' if website != "null" else f'Webpage {url} successfully inserted'
+        print(log_message)
