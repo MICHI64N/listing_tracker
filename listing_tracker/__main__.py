@@ -1,11 +1,13 @@
-import database.inserted_webpages
+import database.listings
 import sys
 
-insert_webpage = database.inserted_webpages.insert_webpage
-inserted_webpages_table = database.inserted_webpages.inserted_webpages
+add_listing = database.listings.add_listing
+listings_table = database.listings.listings_table
 
 if __name__ == "__main__" and len(sys.argv) >= 3:
-    arg1_add_cond = sys.argv[1] == "-a" or sys.argv[1] == "-add"
-    arg2_webpage_cond = sys.argv[2] == "webpage"
-    if arg1_add_cond and arg2_webpage_cond:
-        insert_webpage(inserted_webpages_table)
+    add_cmd = sys.argv[1] == "add"
+    webpage_arg = sys.argv[2] == "webpage"
+    items_args = sys.argv[3:]
+    if add_cmd and webpage_arg and items_args:
+        for url in items_args:
+            add_listing(listings_table, url)

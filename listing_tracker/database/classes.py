@@ -8,9 +8,6 @@ class Column:
         self.default_val = default_val
         self.column = f'{self.name} {self.type} {self.null} {self.default_val}'
 
-    def __str__(self):
-        return f'{self.column}'
-
 class Table:
     def __init__(self, name: str):
         self.name = name
@@ -51,11 +48,3 @@ class Table:
             cursor_statement += ", " if row != values[-1] else ";"
         connection.cursor.execute(cursor_statement)
         connection.db.commit()
-    
-    def view(self, *columns: str):
-        cursor_statement = f'SELECT {columns} FROM {self.name}'
-        rows = connection.cursor.execute(cursor_statement)
-        print(rows.fetchall())
-        
-    def __str__(self):
-        return f'{self.name} {self.columns}'
