@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Inserted the GitHub repository link in the `pyproject.toml` file
 - Started this changelog (`CHANGELOG.md`)
 - Created the `/docs/` directory containing `commands.md` and documentation for the tracker's files
+- Created GitHub Actions workflows under `./github/workflows` to publish this package to PyPI
 
 ### Changed
 - Rewrote `README.md` to a "usage" syntax 
