@@ -1,4 +1,4 @@
-from database import connection
+from listing_tracker.database import connection
 
 class Column: 
     def __init__(self, name: str, type: str, null: bool, default_val: str):

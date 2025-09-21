@@ -1,13 +1,13 @@
-import database.listings
+from listing_tracker.database import listings
 import sys
 
-add_listing = database.listings.add_listing
-listings_table = database.listings.listings_table
+add_listing = listings.add_listing
+listings_table = listings.listings_table
 
 if __name__ == "__main__" and len(sys.argv) >= 3:
     add_cmd = sys.argv[1] == "add"
-    webpage_arg = sys.argv[2] == "webpage"
+    listing_arg = sys.argv[2] == "listing"
     items_args = sys.argv[3:]
-    if add_cmd and webpage_arg and items_args:
+    if add_cmd and listing_arg and items_args:
         for url in items_args:
             add_listing(listings_table, url)

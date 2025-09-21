@@ -1,4 +1,4 @@
-import database
+from listing_tracker import database
 import datetime
 import os
 import re
@@ -36,5 +36,5 @@ def add_listing(listings_table: classes.Table, url):
         # support Python 3.10
     values = (url, website, datetime_adapter(init_datetime))
     listings_table.insert(values)
-    log_message = f'Webpage from {website} successfully inserted' if website != "null" else f'Webpage {url} successfully inserted'
+    log_message = f'Listing from {website} successfully inserted' if website != "null" else f'Listing {url} successfully inserted'
     print(log_message)

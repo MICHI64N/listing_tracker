@@ -1,4 +1,4 @@
-from database import classes
+from listing_tracker.database import classes
 
 website_list = classes.Table("websites")
 website_list.column_assign([classes.Column("name", "text", False, ""), classes.Column("domain", "text", False, "")])
