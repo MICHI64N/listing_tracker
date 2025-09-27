@@ -8,13 +8,13 @@ Make sure to replace `python` with `python3` or `py` if applicable. The prefix i
 * [view](#View) - View tables in the database.
 
 ## Add
-**Usage**: `listing_tracker add <type>`
+**Usage**: `listing_tracker add <table>`
 
-### Types
+### Tables
 * `listing <urls>` - Add one or more listings to the database by their urls.
 
 ## View
-**Usage**: `listing_tracker view <type>`
+**Usage**: `listing_tracker view <table>`
 
-### Types
+### Tables
 * `listing` - View the listings table in the database.

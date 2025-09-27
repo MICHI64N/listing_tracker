@@ -16,21 +16,21 @@ class Command:
 class Database(Command):
     def __init__(self, args):
         super().__init__(args)
-        self.type = self.args[0]
-        self.valid_types = ["listing"]
+        self.table = self.args[0]
+        self.valid_tables = ["listings"]
 
-    def type_valid(self):
-        if not self.type in self.valid_types:
-            raise Exception(f'The argument {self.type} is not valid for this command.')
+    def table_valid(self):
+        if not self.table in self.valid_tables:
+            raise Exception(f'The argument {self.table} is not valid for this command.')
         
     def valid(self, expected_arg_amount, fixed_amount):
         self.arg_amount_valid(expected_arg_amount, fixed_amount)
-        self.type_valid()
+        self.table_valid()
 
-    def exec_actions(self, listing_action):
-        match self.type:
+    def exec_actions(self, listings_action):
+        match self.table:
             case "listing":
-                return listing_action
+                return listings_action
             case _:
                 print("This is a bug and should not have happened.")
 

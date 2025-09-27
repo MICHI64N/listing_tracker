@@ -16,15 +16,15 @@ This is every class in the listing_tracker package; they improve efficiency and 
 ### \_\_init\_\_ Properties
 * **args (*list*)** - [**Inherited from Parent**] The command's arguments
 * **arg_amount (*int*)** - [**Inherited from Parent**] The amount of arguments provided in the command
-* **type (*string*)** - [**Inherited from Parent**] The first argument of the database command
+* **table (*string*)** - [**Inherited from Parent**] The first argument of the database command
 * **urls (*list*)** - A list of urls to add to the database
 
 ### Methods
 * **arg_amount_valid(*expected_arg_amount, fixed_amount*)** - [**Inherited from Parent**] Validates if the correct amount of arguments were provided in the command
-* **type_valid()** - [**Inherited from Parent**] Validates if the type is usable for the command
-* **valid(*expected_arg_amount, fixed_amount*)** - [**Inherited from Parent**] Executes both arg_amount_valid() and type_valid() methods to fully test the command's validity
-* **exec_actions(*\*type_actions*)** - [**Inherited from Parent**] Match the command's type and execute the according type action
-* **exec()** - Execute self_valid() and exec_actions() to add the urls to the table of the associated type
+* **table_valid()** - [**Inherited from Parent**] Validates if the table is usable for the command
+* **valid(*expected_arg_amount, fixed_amount*)** - [**Inherited from Parent**] Executes both arg_amount_valid() and table_valid() methods to fully test the command's validity
+* **exec_actions(*\*table_actions*)** - [**Inherited from Parent**] Match the command's table and execute the according table action
+* **exec()** - Execute self_valid() and exec_actions() to add the urls to the associated table
 
 ## Class Column
 **Location**: [/listing_tracker/database/tables.py](/listing_tracker/database/tables.py)
@@ -64,13 +64,13 @@ This class contains no methods; it is meant to be used by [Class Table](#class-t
 ### \_\_init\_\_ Properties
 * **args (*list*)** - [**Inherited from Parent**] The command's arguments
 * **arg_amount (*int*)** - [**Inherited from Parent**] The amount of arguments provided in the command
-* **type (*string*)** - The first argument of the database command
+* **table (*string*)** - The first argument of the database command
 
 ### Methods
 * **arg_amount_valid(*expected_arg_amount, fixed_amount*)** - [**Inherited from Parent**] Validates if the correct amount of arguments were provided in the command
-* **type_valid()** - Validates if the type is usable for the command
-* **valid(*expected_arg_amount, fixed_amount*)** - Executes both arg_amount_valid() and type_valid() methods to fully test the command's validity
-* **exec_actions(*\*type_actions*)** - Match the command's type and execute the according type action
+* **table_valid()** - Validates if the table is usable for the command
+* **valid(*expected_arg_amount, fixed_amount*)** - Executes both arg_amount_valid() and table_valid() methods to fully test the command's validity
+* **exec_actions(*\*table_actions*)** - Match the command's table and execute the according table action
 
 ## Class Table
 **Location**: [/listing_tracker/database/tables.py](/listing_tracker/database/tables.py)
@@ -96,11 +96,11 @@ This class contains no methods; it is meant to be used by [Class Table](#class-t
 ### \_\_init\_\_ Properties
 * **args (*list*)** - [**Inherited from Parent**] The command's arguments
 * **arg_amount (*int*)** - [**Inherited from Parent**] The amount of arguments provided in the command
-* **type (*string*)** - [**Inherited from Parent**] The first argument of the database command
+* **table (*string*)** - [**Inherited from Parent**] The first argument of the database command
 
 ### Methods
 * **arg_amount_valid(*expected_arg_amount, fixed_amount*)** - [**Inherited from Parent**] Validates if the correct amount of arguments were provided in the command
-* **type_valid()** - [**Inherited from Parent**] Validates if the type is usable for the command
-* **valid(*expected_arg_amount, fixed_amount*)** - [**Inherited from Parent**] Executes both arg_amount_valid() and type_valid() methods to fully test the command's validity
-* **exec_actions(*\*type_actions*)** - [**Inherited from Parent**] Match the command's type and execute the according type action
-* **exec()** - Execute self_valid() and exec_actions() to view the table of the associated type
+* **table_valid()** - [**Inherited from Parent**] Validates if the table is usable for the command
+* **valid(*expected_arg_amount, fixed_amount*)** - [**Inherited from Parent**] Executes both arg_amount_valid() and table_valid() methods to fully test the command's validity
+* **exec_actions(*\*table_actions*)** - [**Inherited from Parent**] Match the command's table and execute the according table action
+* **exec()** - Execute self_valid() and exec_actions() to view the associated table
