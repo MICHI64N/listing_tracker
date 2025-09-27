@@ -5,9 +5,16 @@ Make sure to replace `python` with `python3` or `py` if applicable. The prefix i
 
 ## Brief Command List
 * [add](#Add) - Add an item to the database.
+* [view](#View) - View tables in the database.
 
 ## Add
 **Usage**: `listing_tracker add <type>`
 
 ### Types
 * `listing <urls>` - Add one or more listings to the database by their urls.
+
+## View
+**Usage**: `listing_tracker view <type>`
+
+### Types
+* `listing` - View the listings table in the database.

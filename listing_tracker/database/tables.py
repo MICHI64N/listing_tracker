@@ -40,3 +40,10 @@ class Table:
             cursor_statement += ", " if not row == values[-1] else ";"
         connection.cursor.execute(cursor_statement)
         connection.db.commit()
+
+    def view(self): 
+        # TODO: Format View
+        # TODO: Allow User Selectors
+        cursor_statement = f'SELECT rowid, * FROM {self.name}'
+        data = connection.cursor.execute(cursor_statement)
+        return print(data.fetchall())

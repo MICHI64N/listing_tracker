@@ -33,3 +33,6 @@ def add_listing(url):
     listings_table.insert(values)
     log_message = f'Listing from {website} ({url}) successfully inserted' if website != "null" else f'Listing {url} successfully inserted'
     print(log_message)
+
+def view_listings():
+    listings_table.view()

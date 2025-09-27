@@ -5,7 +5,7 @@ class Command:
         self.args = args
         self.arg_amount = len(self.args)
     
-    def valid_arg_amount(self, expected_arg_amount: int, fixed_amount: bool):
+    def arg_amount_valid(self, expected_arg_amount: int, fixed_amount: bool):
         if self.arg_amount == expected_arg_amount:
             pass
         elif self.arg_amount >= expected_arg_amount and fixed_amount == False:
@@ -19,13 +19,20 @@ class Database(Command):
         self.type = self.args[0]
         self.valid_types = ["listing"]
 
-    def valid_type(self):
-        if not self.type in self.valid_type:
+    def type_valid(self):
+        if not self.type in self.valid_types:
             raise Exception(f'The argument {self.type} is not valid for this command.')
         
     def valid(self, expected_arg_amount, fixed_amount):
-        self.valid_arg_amount(expected_arg_amount, fixed_amount)
-        self.valid_type()
+        self.arg_amount_valid(expected_arg_amount, fixed_amount)
+        self.type_valid()
+
+    def exec_actions(self, listing_action):
+        match self.type:
+            case "listing":
+                return listing_action
+            case _:
+                print("This is a bug and should not have happened.")
 
 class Add(Database):
     def __init__(self, args):
@@ -33,8 +40,13 @@ class Add(Database):
         self.urls = self.args[1:]
 
     def exec(self):
-        match self.type:
-            case "listing":
-                return [listings.add_listing(url) for url in self.urls]
-            case _:
-                print("This is a bug and should not have happened.")
+        self.valid(2, False)
+        self.exec_actions([listings.add_listing(url) for url in self.urls])
+
+class View(Database):
+    def __init__(self, args):
+        super().__init__(args)
+
+    def exec(self):
+        self.valid(1, True)
+        self.exec_actions(listings.view_listings())

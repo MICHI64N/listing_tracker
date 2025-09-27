@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Created `commands.py` to streamline command actions
+- Implemented the `view` command
 
 ### Changed
 - File `classes.py` is now `tables.py`
