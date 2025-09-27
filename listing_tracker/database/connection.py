@@ -1,4 +1,4 @@
-from listing_tracker import dir
+import listing_tracker.dir as dir
 import sqlite3
 
 db_name = "database.sqlite"

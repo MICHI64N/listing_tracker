@@ -1,4 +1,4 @@
-from listing_tracker.database import listings
+import listing_tracker.database.listings as listings
 import sys
 
 add_listing = listings.add_listing

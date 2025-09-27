@@ -1,15 +1,11 @@
-from listing_tracker import database
-import datetime
-import os
-import re
-classes = database.classes
-connection = database.connection
+from listing_tracker.database import tables, connection
+import datetime, os, re
 datetime_type = datetime.datetime
 
-listings_table = classes.Table("listings")
-listings_table.column_assign([classes.Column("link", "text", False, ""),
-    classes.Column("website", "text", True, f'{None}'),
-    classes.Column("init_datetime", "blob", False, "")])
+listings_table = tables.Table("listings")
+listings_table.column_assign([tables.Column("link", "text", False, ""),
+    tables.Column("website", "text", True, f'{None}'),
+    tables.Column("init_datetime", "blob", False, "")])
 listings_table_dict = listings_table.get_dict()
 if not listings_table.exists():
     listings_table.create(listings_table_dict)
@@ -29,7 +25,7 @@ def website_identifier(url):
 def datetime_adapter(datetime):
     return datetime.isoformat()
 
-def add_listing(listings_table: classes.Table, url):
+def add_listing(listings_table: tables.Table, url):
     website = website_identifier(url)
     init_datetime = datetime_type.now(datetime.timezone.utc).replace(microsecond=0)
         # 'datetime.timezone.utc' is used instead of 'datetime.UTC' to

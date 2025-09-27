@@ -1,7 +1,7 @@
-from listing_tracker.database import classes
+import listing_tracker.database.tables as tables
 
-website_list = classes.Table("websites")
-website_list.column_assign([classes.Column("name", "text", False, ""), classes.Column("domain", "text", False, "")])
+website_list = tables.Table("websites")
+website_list.column_assign([tables.Column("name", "text", False, ""), tables.Column("domain", "text", False, "")])
 website_list_dict = website_list.get_dict()
 if not website_list.exists():
     website_list.create(website_list_dict)
