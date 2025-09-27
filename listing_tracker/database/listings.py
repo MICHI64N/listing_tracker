@@ -24,12 +24,12 @@ def website_identifier(url):
 def datetime_adapter(datetime):
     return datetime.isoformat()
 
-def add_listing(listings_table: tables.Table, url):
+def add_listing(url):
     website = website_identifier(url)
     init_datetime = datetime_type.now(datetime.timezone.utc).replace(microsecond=0)
         # 'datetime.timezone.utc' is used instead of 'datetime.UTC' to
         # support Python 3.10
     values = (url, website, datetime_adapter(init_datetime))
     listings_table.insert(values)
-    log_message = f'Listing from {website} successfully inserted' if website != "null" else f'Listing {url} successfully inserted'
+    log_message = f'Listing from {website} ({url}) successfully inserted' if website != "null" else f'Listing {url} successfully inserted'
     print(log_message)

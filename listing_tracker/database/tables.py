@@ -4,7 +4,7 @@ class Column:
     def __init__(self, name: str, type: str, null: bool, default: str):
         self.name = name
         self.type = type
-        self.null = "" if null else "NOT NULL"
+        self.null = "NOT NULL" if not null else ""
         self.default = default
         self.statement= f'{self.name} {self.type} {self.null} {self.default}'
 
@@ -25,7 +25,7 @@ class Table:
         cursor_statement = f'CREATE TABLE {self.name}('
         for column in self.columns:
             cursor_statement += column.statement
-            cursor_statement += ", " if column != self.columns[-1] else ")"
+            cursor_statement += ", " if not column == self.columns[-1] else ")"
         connection.cursor.execute(cursor_statement)
     
     def insert(self, values: tuple):
@@ -37,6 +37,6 @@ class Table:
         cursor_statement = f'INSERT INTO {self.name} VALUES'
         for row in values:
             cursor_statement += f'{row}'
-            cursor_statement += ", " if row != values[-1] else ";"
+            cursor_statement += ", " if not row == values[-1] else ";"
         connection.cursor.execute(cursor_statement)
         connection.db.commit()
