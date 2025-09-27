@@ -7,10 +7,6 @@ The database directory contains the files to operate the database (excluding use
 * [database.sqlite](#databasesqlite)
 * [websites.py](#websitespy)
 
-The files not documented here have their own pages under [/docs/database/](/docs/database/):
-* [classes.py](/docs/database/classes.py)
-* [listings.py](/docs/database/listings.md)
-
 ## \_\_init\_\_.py
 **Location**: [/listing_tracker/database/\_\_init\_\_.py](/listing_tracker/database/__init__.py)
 

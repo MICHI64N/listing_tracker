@@ -2,7 +2,7 @@
 This is every table included in the packages database (database.sqlite):
 
 ## listings
-**Location**: [/listing_tracker/database/listings.py](/listing_tracker/database/listings.py)
+**Location**: [/listing_tracker/database/tables/listings.py](/listing_tracker/database/listings.py)
 
 ### Columns
 * **link (*text*)** - Stores listing URL's
@@ -10,7 +10,7 @@ This is every table included in the packages database (database.sqlite):
 * **datetime_added (*blob*)** - The date and time the row was created
 
 ## websites
-**Location**: [/listing_tracker/database/websites.py](/listing_tracker/database/websites.py)
+**Location**: [/listing_tracker/database/tables/websites.py](/listing_tracker/database/tables/websites.py)
 
 The websites table is automatically populated by its script, see the [file docs](/docs/database.md#websitespy) for the website list.
 

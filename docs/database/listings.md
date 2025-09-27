@@ -1,5 +1,5 @@
 # listings.py Documentation
-**Location**: [/listing_tracker/database/listings.py](/listing_tracker/database/listings.py)
+**Location**: [/listing_tracker/database/tables/listings.py](/listing_tracker/database/listings.py)
 
 Outside of the file's functions, the file looks for the [listings table](/docs/database/tables.md#listings) and creates the table if it does not yet exist. It uses the [Table and Column classes](/docs/database/classes.md) to aid in this.
 
