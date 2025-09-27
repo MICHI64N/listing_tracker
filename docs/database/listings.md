@@ -1,7 +1,7 @@
 # listings.py Documentation
 **Location**: [/listing_tracker/database/listings.py](/listing_tracker/database/listings.py)
 
-Outside of the file's functions, the file looks for the listings table and creates the table if it does not yet exist. It uses the [Table and Column classes](/docs/database/classes.md) to aid in this.
+Outside of the file's functions, the file looks for the [listings table](/docs/database/tables.md#listings) and creates the table if it does not yet exist. It uses the [Table and Column classes](/docs/database/classes.md) to aid in this.
 
 ## Functions
 * **website_identifier(*url*)** - Compares the URL with the pre-defined website list created in [websites.py](/docs/database.md#websitespy), returning the match if found and returns a null string if not.

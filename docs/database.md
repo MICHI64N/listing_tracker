@@ -30,3 +30,12 @@ This file is the SQLite database itself. It doesn't exist until the user calls a
 **Location**: [/listing_tracker/database/websites.py](/listing_tracker/database/websites.py)
 
 Creates a table with a pre-defined website list used in [listings.py](/docs/database/listings.md).
+
+### Website List
+* \[COM\] Amazon - www.amazon.com
+* \[JP] Amazon - www.amazon.co.jp
+* eBay - www.ebay.com
+* Lashinbang - shop.lashinbang.com
+* Mandarake - www.mandarake.co.jp
+* \[COM\] Mercari - www.mercari.com
+* \[JP\] Mercari - jp.mercari.com; mercari.jp

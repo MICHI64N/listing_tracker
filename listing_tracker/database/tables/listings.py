@@ -1,11 +1,12 @@
-from listing_tracker.database import tables, connection
+from listing_tracker.database import table_class, connection
 import datetime, os, re
 datetime_type = datetime.datetime
 
-listings_table = tables.Table("listings")
-listings_table.assign_columns([tables.Column("link", "text", False, ""),
-    tables.Column("website", "text", True, f'{None}'),
-    tables.Column("init_datetime", "blob", False, "")])
+listings_table = table_class.Table("listings")
+# TODO: Change the website column to be a foreign key
+listings_table.assign_columns([table_class.Column("link", "text", False, ""),
+    table_class.Column("website", "text", True, f'{None}'),
+    table_class.Column("init_datetime", "blob", False, "")])
 if not listings_table.exists():
     listings_table.create()
 

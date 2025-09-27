@@ -1,1 +1,1 @@
-from listing_tracker.database import connection, listings, tables, websites
+from listing_tracker.database import connection, table_class

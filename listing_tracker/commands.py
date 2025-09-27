@@ -1,4 +1,4 @@
-import listing_tracker.database.listings as listings
+import listing_tracker.database.tables.listings as listings
 
 class Command:
     def __init__(self, args):
