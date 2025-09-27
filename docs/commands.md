@@ -1,12 +1,12 @@
 # Listing Tracker Commands
 **Usage**: `python -m listing_tracker <command>`
 
-*Make sure to replace `python` with `python3` or `py` if applicable. The prefix is trunicated from examples after this point.*
+Make sure to replace `python` with `python3` or `py` if applicable. The prefix is trunicated from examples after this point.
 
 ## Brief Command List
-* [`add`](#add) - Add an item to the database.
+* [add](#Add) - Add an item to the database.
 
-## `add`
+## Add
 **Usage**: `listing_tracker add <type>`
 
 ### Types

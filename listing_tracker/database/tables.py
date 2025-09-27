@@ -1,39 +1,31 @@
 import listing_tracker.database.connection as connection
 
 class Column: 
-    def __init__(self, name: str, type: str, null: bool, default_val: str):
+    def __init__(self, name: str, type: str, null: bool, default: str):
         self.name = name
         self.type = type
         self.null = "" if null else "NOT NULL"
-        self.default_val = default_val
-        self.column = f'{self.name} {self.type} {self.null} {self.default_val}'
+        self.default = default
+        self.statement= f'{self.name} {self.type} {self.null} {self.default}'
 
 class Table:
     def __init__(self, name: str):
         self.name = name
-        self.columns = []
+        self.columns: list[Column] = []
 
-    def column_assign(self, columns):
+    def assign_columns(self, columns: list[Column]):
         [self.columns.append(column) for column in columns]
-
-    def get_dict(self):
-        column_dicts = []
-        for column in self.columns:
-            column_dict = dict(column_name = column.name, column_type = column.type, column_null = column.null, column_default_val = column.default_val)
-            column_dicts.append(column_dict)
-        table_dict = dict(table_name = self.name, columns = column_dicts)
-        return table_dict
     
     def exists(self):
         find = connection.cursor.execute(f'SELECT name FROM sqlite_master WHERE type="table" AND name="{self.name}";')
         exists = True if len(find.fetchall()) > 0 else False
         return exists
     
-    def create(self, table_dict):
+    def create(self):
         cursor_statement = f'CREATE TABLE {self.name}('
-        for column in table_dict["columns"]:
-            cursor_statement += f'{column["column_name"]} {column["column_type"]} {column["column_null"]} {column["column_default_val"]}'
-            cursor_statement += ", " if column != table_dict["columns"][-1] else ")"
+        for column in self.columns:
+            cursor_statement += column.statement
+            cursor_statement += ", " if column != self.columns[-1] else ")"
         connection.cursor.execute(cursor_statement)
     
     def insert(self, values: tuple):

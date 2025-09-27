@@ -3,15 +3,14 @@ import datetime, os, re
 datetime_type = datetime.datetime
 
 listings_table = tables.Table("listings")
-listings_table.column_assign([tables.Column("link", "text", False, ""),
+listings_table.assign_columns([tables.Column("link", "text", False, ""),
     tables.Column("website", "text", True, f'{None}'),
     tables.Column("init_datetime", "blob", False, "")])
-listings_table_dict = listings_table.get_dict()
 if not listings_table.exists():
-    listings_table.create(listings_table_dict)
+    listings_table.create()
 
 if not os.path.exists(connection.db_path):
-    listings_table.create(listings_table_dict)
+    listings_table.create()
 
 def website_identifier(url):
     url = re.sub(r'http[s]?://', "", url)
